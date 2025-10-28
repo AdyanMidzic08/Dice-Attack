@@ -1,3 +1,3 @@
 #Dice-Attack
-#Repository: https://github.com/thetraingamer08/Dice-Attack
-#Webside: https://thetraingamer08.github.io/Dice-Attack/
+#Repository: https://github.com/AdyanMidzic08/Dice-Attack.git
+#Webside: https://adyanmidzic08.github.io/Dice-Attack/
