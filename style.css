@@ -1,0 +1,1001 @@
+@font-face {
+    font-family: pokemon-pixel;
+    src: url(./Fonts/Ketchum.otf);
+}
+
+@font-face {
+    font-family: pokemon-text;
+    src: url(./Fonts/Pokemon\ X\ and\ Y.ttf);
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    user-select: none;
+    overflow: hidden;
+}
+
+.menu-ball {
+    margin-top: 6%;
+}
+
+#newGame,
+#GameRules {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    user-select: none;
+    text-decoration: none;
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.text {
+    position: absolute;
+    top: 7%;
+    left: 50.8%;
+    transform: translate(-50%, -50%);
+    /* mittig */
+    text-transform: uppercase;
+    font-family: pokemon-pixel, sans-serif;
+    font-size: 6rem;
+    /* bei Bedarf kleiner/grösser machen */
+    font-weight: 700;
+    color: #f5f5f5;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff,
+        1px 18px 6px rgba(16, 16, 16, 0.4);
+    animation: glow 3s infinite alternate ease-in-out;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Animation für pulsierendes Leuchten (Position beibehalten) */
+@keyframes glow {
+    0% {
+        text-shadow:
+            0 0 2px #fff,
+            0 0 3px #fff,
+            0 0 5px #aaa;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 40px #fff;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+#box {
+    width: 60%;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 2rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-items: center;
+    font-family: pokemon-text;
+    color: white;
+}
+
+#box div {
+    width: 50%;
+    padding: 1rem;
+    user-select: none;
+    text-align: center;
+    border-radius: 8px;
+
+}
+
+#box a {
+    text-decoration: none;
+    width: 30%;
+    text-align: center;
+    margin-left: 2%;
+    padding-left: 5%;
+}
+
+#box p {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#box div:hover {
+    color: black;
+    text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px white;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#newGame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* zentriert Text + Bild horizontal */
+    gap: 0.6rem;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    user-select: none;
+    transition: all 500ms ease-out;
+}
+
+#GameRules {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    user-select: none;
+    transition: all 500ms ease-out;
+}
+
+#box img {
+    display: none;
+}
+
+.pokeball {
+    width: 60px;
+    height: 50px;
+    display: inline-block;
+    background-image: url("./Images/Pokeball.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: background-image 0.22s ease, transform 0.22s ease;
+}
+
+#GameRules:hover .pokeball,
+#newGame:hover .pokeball {
+    background-image: url("./Images/Pokeball-open.png");
+    transform: translateY(-4px) scale(1.06);
+
+}
+
+.poke3:hover {
+    background-image: url("./Images/Pokeball-open.png");
+    transform: translateY(-4px) scale(1.06);
+}
+
+#GameRules:hover,
+#newGame:hover {
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* verhindert, dass das Video Sections überlappt beim Springen */
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rulesBox {
+    width: 60%;
+    padding: 5rem;
+    align-items: center;
+    justify-items: center;
+    font-family: pokemon-text;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 44px;
+    border: 2px solid w hite;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#rulesBox p {
+    color: #ffffff; /* Text weiß */
+    font-size: 1.5rem;
+}
+
+#rulesBox h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: tomato;
+}
+
+#rulesBox a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.poke3 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.poke4 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.poke1 {
+    position: relative;
+    left: 100%;
+    top: 0;
+}
+
+.poke2 {
+    position: relative;
+    right: 12%;
+    top: 0;
+}
+
+strong {
+    border-bottom: 2px white solid;
+}
+
+#rules-headline {
+    font-size: 3rem;
+    color: #F44236;
+}
+
+#backHomeButton {
+    background-color: white;
+    width: 100%;
+    height: 5vh;
+    border-radius: 44px;
+    color: black;
+    padding-top: 1%;
+    margin-top: 10%;
+    font-size: 1.7rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    transition: all 500ms ease-out;
+    user-select: none;
+}
+
+#backHomeButton:hover .pokeball {
+    background-image: url("./Images/Pokeball-open.png");
+    transform: translateY(-4px) scale(1.06);
+}
+
+#backHomeButton:hover {
+    color: #fff;
+    text-shadow:
+        0 0 5px #000,
+        0 0 10px #000,
+        0 0 20px #000,
+        0 0 40px #000;
+}
+
+#output {
+    color: white;
+}
+
+/* Game Container */
+.game-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    /* already set, keep */
+    justify-content: center;
+    padding-top: 9.5rem;
+    /* <-- hier verschieben, anpassen falls nötig */
+    padding-left: 3rem;
+    padding-right: 3rem;
+    box-sizing: border-box;
+    pointer-events: auto;
+    z-index: 2;
+    /* leichte Glas-Card-Optik passend zum Video */
+    background: linear-gradient(180deg, rgba(10, 16, 24, 0.06), rgba(6, 10, 14, 0.18));
+    flex-wrap: wrap;
+}
+
+/* Spieler-Boxen größer, besser lesbar */
+.player {
+    width: 420px;
+    height: 60%;
+    min-width: 320px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    color: #e6eef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* obere Bildreihe: horizontal mittig */
+.img-row {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Bild-Boxen: klickbar / selectbar */
+.img-box {
+    width: 96px;
+    height: 96px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+/* Bild im Inneren passt sich an */
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    /* Klick geht an die Box */
+
+}
+
+/* Hover/Focus Zustand */
+.img-box:hover,
+.img-box:focus {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+    outline: none;
+}
+
+/* Wenn ausgewählt durch JS, class "selected" anhängen */
+.img-box.selected {
+    border-color: rgba(80, 170, 255, 0.95);
+    box-shadow: 0 12px 30px rgba(80, 170, 255, 0.12);
+}
+
+/* Start-Button mittig zwischen Spielern */
+.start-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.start-btn {
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(180deg, #56a0ff, #2a7be2);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(42, 123, 226, 0.28);
+}
+
+/* grössere Hauptboxen (big-box) für Lesbarkeit */
+.big-box {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.scale {
+    transform: scaleX(-1);
+}
+
+/* kleinere Boxen im unteren Bereich */
+.small-box,
+.dice-box {
+    width: 48%;
+    height: 56px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Accessibility: sichtbarer Fokus (keyboard) */
+.img-box:focus {
+    box-shadow: 0 8px 20px rgba(80, 170, 255, 0.12);
+    border-color: rgba(80, 170, 255, 0.8);
+}
+
+/* bottom-row: Input + klickbare Div (als Submit) */
+.bottom-row {
+    width: 100%;
+    display: flex;
+    gap: 0.9rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.1rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+}
+
+/* Input styling */
+.name-input {
+    flex: 1 1 auto;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    color: #e6eef8;
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+/* sichtbarer Fokus für Accessibility */
+.name-input:focus {
+    box-shadow: 0 6px 18px rgba(80, 170, 255, 0.12);
+    border-color: rgba(80, 170, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* klickbare Div als Button */
+.submit-div {
+    flex: 0 0 84px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #56a0ff, #2a7be2);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 8px 20px rgba(42, 123, 226, 0.18);
+    transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+/* Hover / Fokus Zustand */
+.submit-div:hover,
+.submit-div:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(42, 123, 226, 0.28);
+    outline: none;
+}
+
+.headline {
+    font-family: pokemon-text;
+}
+
+/* Map-Modal/CSS entfernt */
+
+/* Game Container */
+.game-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    /* already set, keep */
+    justify-content: center;
+    padding-top: 9.5rem;
+    /* <-- hier verschieben, anpassen falls nötig */
+    padding-left: 3rem;
+    padding-right: 3rem;
+    box-sizing: border-box;
+    pointer-events: auto;
+    z-index: 2;
+    /* leichte Glas-Card-Optik passend zum Video */
+    background: linear-gradient(180deg, rgba(10, 16, 24, 0.06), rgba(6, 10, 14, 0.18));
+    flex-wrap: wrap;
+    margin-top: 8rem;
+}
+
+/* Spieler-Boxen größer, besser lesbar */
+.player {
+    width: 420px;
+    min-width: 320px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    color: #e6eef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* obere Bildreihe: horizontal mittig */
+.img-row {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Bild-Boxen: klickbar / selectbar */
+.img-box {
+    width: 96px;
+    height: 96px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+/* Bild im Inneren passt sich an */
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    /* Klick geht an die Box */
+
+}
+
+/* Hover/Focus Zustand */
+.img-box:hover,
+.img-box:focus {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+    outline: none;
+}
+
+/* Wenn ausgewählt durch JS, class "selected" anhängen */
+.img-box.selected {
+    border-color: rgba(80, 170, 255, 0.95);
+    box-shadow: 0 12px 30px rgba(80, 170, 255, 0.12);
+}
+
+/* Start-Button mittig zwischen Spielern */
+.start-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-btn {
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(180deg, #56a0ff, #2a7be2);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(42, 123, 226, 0.28);
+}
+
+/* grössere Hauptboxen (big-box) für Lesbarkeit */
+.big-box {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.scale {
+    transform: scaleX(-1);
+}
+
+/* kleinere Boxen im unteren Bereich */
+.small-box,
+.dice-box {
+    width: 48%;
+    height: 56px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Accessibility: sichtbarer Fokus (keyboard) */
+.img-box:focus {
+    box-shadow: 0 8px 20px rgba(80, 170, 255, 0.12);
+    border-color: rgba(80, 170, 255, 0.8);
+}
+
+/* bottom-row: Input + klickbare Div (als Submit) */
+.bottom-row {
+    width: 100%;
+    display: flex;
+    gap: 0.6rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+}
+
+/* Input styling */
+.name-input {
+    flex: 1 1 auto;
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    color: #e6eef8;
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+/* sichtbarer Fokus für Accessibility */
+.name-input:focus {
+    box-shadow: 0 6px 18px rgba(80, 170, 255, 0.12);
+    border-color: rgba(80, 170, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* klickbare Div als Button */
+.submit-div {
+    flex: 0 0 84px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #56a0ff, #2a7be2);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 8px 20px rgba(42, 123, 226, 0.18);
+    transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+/* Hover / Fokus Zustand */
+.submit-div:hover,
+.submit-div:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(42, 123, 226, 0.28);
+    outline: none;
+}
+
+.headline {
+    font-family: pokemon-text;
+}
+
+#output-final-game {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    width: 10vw;
+    max-width: 900px;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: #2a7be2;
+}
+
+.pokemon {
+    width: 1000px;
+    height: auto;
+    margin: 1rem;
+}
+
+/* Player boxes */
+.player-boxes {
+    gap: 5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center; 
+    margin: 0 auto;
+}
+
+#Dice-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 10vw;
+    height: 5vh;
+    font-family: pokemon-text;
+    opacity: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.9)
+    );
+    transition: all 200ms ease-in;
+}
+
+#Dice-Button:hover {
+    transform: scale(1.1);
+}
+
+.playerText {
+    color: black;
+    font-family: pokemon-text;
+}
+
+.Question-Mark img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10px;
+}
+
+.Dice-Pic {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.6s ease;
+}
+
+.roll-animation {
+  animation: roll 0.6s ease;
+}
+
+@keyframes roll {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(90deg); }
+  50%  { transform: rotate(180deg); }
+  75%  { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.attack-animation {
+  animation: attack 0.4s ease;
+}
+
+@keyframes attack {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-20px); } /* Richtung kann angepasst werden */
+  100% { transform: translateX(0); }
+}
+
+#attackOutput {
+    text-align: center;
+    color: white;
+    font-family: pokemon-text;
+    animation: readyTest 2s infinite;
+}
+
+.pokemon-preview img {
+    height: 20vh;
+}
+
+@keyframes readyTest {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pokemon-right-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: auto;
+    z-index: 5;
+}
+
+.pokemon-right-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: auto;
+    z-index: 5;
+}
+.pokemon-left-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: auto;
+    z-index: 5;
+}
+.pokemon-left-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: auto;
+    z-index: 5;
+}
+
+/* --- Rules Section Styling (add this at end of file) --- */
+#rules {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(10,16,24,0.75), rgba(0,0,0,0.9)),
+              url("./Images/Pokemon-bg.jpg") center/cover no-repeat;
+  box-sizing: border-box;
+  padding: 3rem 1rem;
+  position: relative;
+}
+
+#rulesBox {
+  width: min(1000px, 94%);
+  max-height: 82vh;             /* begrenzt Höhe, macht Box scrollbar */
+  overflow-y: auto;            /* macht Inhalt scrollbar */
+  background: rgba(255,255,255,0.04);
+  border-radius: 20px;
+  padding: 1.4rem;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #ffffff;               /* Text global weiß */
+  font-size: 1.05rem;          /* Basisgröße etwas größer */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Headline (du hast h2 id="rules-headline") */
+#rules-headline {
+  margin: 0 0 6px 0;
+  font-family: pokemon-pixel, pokemon-text, sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 3rem); /* etwas größer und responsive */
+  color: #ffffff;              /* Überschrift weiß */
+  text-align: center;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* Regel-Boxen */
+.regel-box {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #ffffff;              /* sicherstellen, dass Box-Text weiß ist */
+  font-size: 1.05rem;          /* größere Lesbarkeit */
+  width: 100%;
+}
+.regel-box p {
+    margin-bottom: 0.6rem;
+    color: white;
+}
+.regel-box h2 {
+  color: tomato;               /* gewünschte Farbe */
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem); /* responsive, etwas größer */
+  font-weight: 800;
+  margin: 0 0 0.6rem 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.35);
+}
+
+.regel-box li {
+  margin: 0;
+color: white;
+  line-height: 1.6;
+  font-size: 1.03rem;          /* leicht erhöhte Größe für Absätze/Liste */
+}
+.regel-box ul { padding-left: 1.1rem; margin-top: 0.35rem;font-size: 2rem; }
+.regel-box li { margin-bottom: 0.4rem; font-size: 1.6rem; }
+
+/* Back/Home Button styling (dein HTML hat <a><div id="backHomeButton">) */
+#backHomeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  align-self: center;
+  margin-top: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg,#ffd24d,#ffb700);
+  color: #101010;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  cursor: pointer;
+  font-size: 1rem;
+  width: 10vw;
+}
+
+#backHomeButton a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Pokeball deco positions (keeps previous look) */
+.poke3 { position: absolute; left: 40px; bottom: 16px; width: 56px; height: 56px; }
+.poke4 { position: absolute; right: 40px; bottom: 16px; width: 56px; height: 56px; }
+
+/* Scrollbar styling (WebKit) */
+#rulesBox::-webkit-scrollbar { width: 10px; }
+#rulesBox::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,#4da3ff,#2a7be2);
+  border-radius: 8px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.25);
+}
+#rulesBox::-webkit-scrollbar-track { background: transparent; }
+
+/* Accessibility focus */
+#rulesBox:focus { outline: 2px solid rgba(80,170,255,0.14); outline-offset: 6px; }
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+/* CD-Player unten links */
+#cd-player {
+    position: fixed;
+    bottom: 30px;
+    left: 0px;
+    z-index: 999;
+    pointer-events: none; /* Container nicht klicken, nur das Bild */
+}
+#cd-player .cd {
+    width: 150px;
+    height: 90px;
+    cursor: pointer;
+    pointer-events: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.3s ease;
+}
+#cd-player .cd.spin {
+    animation: cd-spin 1.5s linear infinite;
+}
+@keyframes cd-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* optional: kleinere Version auf kleinen Bildschirmen */
+@media (max-width: 480px) {
+    #cd-player .cd { width: 60px; height: 60px; }
+}

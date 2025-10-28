@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <span class="text">Poke-dice</span>
+    <video autoplay loop muted playsinline>
+        <source src="./Videos/Pokemon-Emerald-Wasserfall-Wallpaper.mp4" type="video/mp4">
+    </video>
+
+    <!-- Home -->
+    <section id="home">
+        <div id="box">
+            <a href="#rules" id="GameRules">
+                <p>Rules</p>
+                <span class="pokeball menu-ball" aria-hidden="true"></span>
+            </a>
+
+            <a onclick="goToPage()" href="#home" id="newGame">
+                <p>NewGame</p>
+                <span class="pokeball menu-ball" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+<section id="rules">
+    <div id="rulesBox">
+        <h2 id="rules-headline">Game Rules</h2>
+
+        <div class="regel-box">
+            <h2>1. Spieler auswählen</h2>
+            <p><strong>Zwei Spieler</strong> geben ihre Namen ein. Danach <strong>wählt jeder Spieler ein Pokémon</strong> aus 
+            (Glumanda 🔥, Bisasam 🌱 oder Schiggy 💧).  
+            Beide müssen ihren Namen bestätigen, bevor das Spiel starten kann.</p>
+        </div>
+
+        <div class="regel-box">
+            <h2>2. Spielstart</h2>
+            <p>Wenn beide Spieler bereit sind, kann mit dem <strong>"Start"</strong>-Button das Spiel beginnen.  
+            Die gewählten Pokémon und Namen werden gespeichert und im nächsten Bildschirm angezeigt.</p>
+        </div>
+
+        <div class="regel-box">
+            <h2>3. Spielablauf</h2>
+            <p>Beide Spieler beginnen mit <strong>6 Lebenspunkten (HP)</strong>.  
+            In jeder Runde klicken beide auf <strong>"DICE!!!"</strong> – dann würfeln sie gleichzeitig.  
+            Wer den höheren Wurf hat, <strong>führt eine Attacke</strong> aus und fügt dem Gegner Schaden zu.</p>
+        </div>
+
+        <div class="regel-box">
+            <h2>4. Schadenssystem</h2>
+            <ul>
+                <li>🔹 Der Spieler mit der höheren Zahl trifft – der Gegner verliert <strong>1 HP</strong>.</li>
+                <li>🔹 Trifft der Gewinner zusätzlich seine „Glückszahl“ (wird zufällig bestimmt), 
+                    ist der Angriff <strong>effektiv</strong> und verursacht <strong>2 HP Schaden</strong>.</li>
+                <li>🔹 Wenn beide dieselbe Zahl würfeln, ist es ein <strong>Unentschieden</strong> – niemand verliert HP.</li>
+            </ul>
+        </div>
+
+        <div class="regel-box">
+            <h2>5. Ziel des Spiels</h2>
+            <p>Das Spiel läuft so lange, <strong>bis ein Spieler keine Lebenspunkte mehr hat</strong>.  
+            Der andere Spieler wird automatisch zum <strong>Sieger</strong> erklärt und ein zufälliges Pokémon-GIF erscheint zur Feier des Sieges 🎉.</p>
+        </div>
+
+        <div class="regel-box">
+            <h2>6. Steuerung</h2>
+            <ul>
+                <li>🎮 Pokémon auswählen → Auf das Bild klicken</li>
+                <li>📝 Namen eingeben → In das Textfeld tippen und "Submit" drücken</li>
+                <li>▶️ Spiel starten → "Start"-Button klicken</li>
+                <li>🎲 Würfeln → Im Kampf "DICE!!!" anklicken</li>
+            </ul>
+        </div>
+
+        <div class="regel-box">
+            <h2>7. Tipps</h2>
+            <ul>
+                <li>Wenn kein Name eingegeben wird, heißt der Spieler automatisch „Player 1“ oder „Player 2“.</li>
+                <li>Die Hintergrundkarte wird bei jedem Start zufällig gewählt.</li>
+                <li>Nach einem Sieg kannst du zwischen <strong>„Neues Spiel“</strong> oder <strong>„Startseite“</strong> wählen.</li>
+            </ul>
+        </div>
+
+        <a href="#home">
+            <div id="backHomeButton">
+                Home
+            </div>
+        </a>
+    </div>
+</section>
+
+    <!-- CD-Player unten links -->
+    <div id="cd-player" aria-hidden="false">
+        <img id="cd-button" class="cd" src="./Images/Pokeball.png" alt="CD Play Button" />
+        <audio id="cd-audio" src="./Audio/Pokémon Omega Ruby & Alpha Sapphire - Zinnia Battle Music (HQ).mp3" preload="auto"></audio>
+    </div>
+    
+</body>
+
+</html>

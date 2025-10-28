@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Poke-dice-Game</title>
+	<link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style/game.css">
+	<script src="../script.js" defer></script>
+</head>
+
+
+<body onload="loadGame()">
+	<div id="output-final-game"></div>
+	<span class="text">Poke-dice</span>
+
+
+	<script>
+		function loadGame() {
+			const player1Name = localStorage.getItem("player1Name") || "Player 1";
+			const player2Name = localStorage.getItem("player2Name") || "Player 2";
+			const player1Img = localStorage.getItem("player1Img") || "";
+			const player2Img = localStorage.getItem("player2Img") || "";
+
+			const output = document.getElementById("output-final-game");
+
+			output.innerHTML = `
+        <div class="player-boxes">
+          <div class="player-box player">
+            <div id="Health1"><img src="../Images/HealthBar/Health-6.png" alt="Healthbar" /></div>
+            <h2 class="playerText">${player1Name}</h2>
+            <div class="pokemon-preview scale">${player1Img}</div>
+            <div class="Question-Mark" id="p1"><img src="../Images/Dices/questionMark.jpg" alt=""></div>
+          </div>
+
+          <div class="center-control">
+            <h1 id="attackOutput">Bereit?</h1>
+            <div onclick="diceAttackStart()" id="Dice-Button">DICE!!!</div>
+          </div>
+
+          <div class="player-box player">
+            <div id="Health2"><img src="../Images/HealthBar/Health-6.png" alt="Healthbar" /></div>
+            <h2 class="playerText">${player2Name}</h2>
+            <div class="pokemon-preview">${player2Img}</div>
+            <div class="Question-Mark" id="p2"><img src="../Images/Dices/questionMark.jpg" alt=""></div>
+          </div>
+        </div>
+      `;
+		}
+	</script>
+   <div id="cd-player" aria-hidden="false">
+        <img id="cd-button" class="cd" src="../Images/Pokeball.png" alt="CD Play Button" />
+        <audio id="cd-audio" src="../Audio/Pokémon Omega Ruby & Alpha Sapphire - Zinnia Battle Music (HQ).mp3" preload="auto"></audio>
+    </div>
+</body>
+
+</html>

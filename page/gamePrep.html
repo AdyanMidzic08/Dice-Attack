@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke-Dice-Game</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- Titel -->
+        <span class="text">Poke-dice</span>
+
+        <!-- Hintergrundvideo -->
+        <video autoplay loop muted playsinline>
+            <source src="../Videos/Pokemon-Emerald-Wasserfall-Wallpaper.mp4" type="video/mp4">
+        </video>
+
+        <!-- Spielfeld (zentriert       , box mit leichter Glas-Optik) -->
+        <div id="index" class="game-container">
+            <!-- Checkbox steuert das Modal (kein JS nötig) -->
+            <input type="checkbox" id="mapToggle" class="map-toggle-input" hidden>
+
+            <!-- Player 1 -->
+            <div class="player player1">
+                <div class="img-row" aria-label="Select image for player 1">
+                    <div class="img-box scale" data-index="0" role="button" tabindex="0">
+                        <div onclick="showSchiggy1()"><img src="../Images/pokemons/Schiggy-transparent.png"
+                                alt="Option 3">
+                        </div>
+                    </div>
+                    <div class="img-box scale" data-index="1" role="button" tabindex="0">
+                        <div onclick="showGlumanda1()"><img src="../Images/pokemons/Glumanda-transparent.png"
+                                alt="Option 2"></div>
+                    </div>
+                    <div class="img-box scale" data-index="2" role="button" tabindex="0">
+                        <div onclick="showBisasam1()"><img src="../Images/pokemons/Bisasam-transparent.png"
+                                alt="Option 1">
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="headline" id="displayPlayer1">Player 1</h2>
+                <div id="box1Show" class="big-box scale"></div>
+
+                <!-- ersetzt: leere bottom-row -->
+                <div class="bottom-row">
+                    <input id="input-name-1" class="name-input" type="text" placeholder="Name eingeben..." />
+                    <div onclick="submitPlayer1()" class="submit-div headline" role="button" tabindex="0"
+                        aria-label="Player1 bestätigen">Submit</div>
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <div class="start-container">
+                <div onclick="startGame()" class="start-btn headline">Start</div>
+            </div>
+
+            <!-- Player 2 -->
+            <div class="player player2">
+                <div class="img-row" aria-label="Select image for player 2">
+                    <div class="img-box" data-index="0" role="button" tabindex="0">
+                        <div onclick="showBisasam2()"><img src="../Images/pokemons/Bisasam-transparent.png"
+                                alt="Option 1">
+                        </div>
+                    </div>
+                    <div class="img-box" data-index="1" role="button" tabindex="0">
+                        <div onclick="showGlumanda2()"><img src="../Images/pokemons/Glumanda-transparent.png"
+                                alt="Option 2"></div>
+                    </div>
+                    <div class="img-box" data-index="2" role="button" tabindex="0">
+                        <div onclick="showSchiggy2()"><img src="../Images/pokemons/Schiggy-transparent.png"
+                                alt="Option 3">
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="headline" id="displayPlayer2">Player 2</h2>
+                <div id="box2Show" class="big-box"><img src="" alt=""></div>
+
+                <!-- ersetzt: leere bottom-row -->
+                <div class="bottom-row">
+                    <input id="input-name-2" class="name-input" type="text" placeholder="Name eingeben..." />
+                    <div onclick="submitPlayer2()" class="submit-div headline" role="button" tabindex="0"
+                        aria-label="Player2 bestätigen">Submit</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cd-player" aria-hidden="false">
+        <img id="cd-button" class="cd" src="../Images/Pokeball.png" alt="CD Play Button" />
+        <audio id="cd-audio" src="../Audio/Pokémon Omega Ruby & Alpha Sapphire - Zinnia Battle Music (HQ).mp3"
+            preload="auto"></audio>
+    </div>
+</body>
+
+</html>
